@@ -1,0 +1,25 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Renovate preset for Beeping Flutter/Dart repos (beeply, beeping_flutter)",
+  "extends": [
+    "local>beeping-io/renovate-config"
+  ],
+  "enabledManagers": ["pub"],
+  "packageRules": [
+    {
+      "description": "Group all Flutter SDK-related packages",
+      "matchPackagePatterns": ["^flutter_", "^dart_"],
+      "groupName": "flutter-sdk"
+    },
+    {
+      "description": "Group Firebase packages",
+      "matchPackagePatterns": ["^firebase_", "^cloud_"],
+      "groupName": "firebase"
+    },
+    {
+      "description": "Pin Dart SDK constraint — do not automerge SDK bumps",
+      "matchDepTypes": ["sdk"],
+      "automerge": false
+    }
+  ]
+}

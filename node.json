@@ -1,0 +1,20 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Renovate preset for Beeping Node.js/TypeScript repos (beeping-web, beeping-node, portal, www)",
+  "extends": [
+    "local>beeping-io/renovate-config"
+  ],
+  "enabledManagers": ["npm"],
+  "packageRules": [
+    {
+      "description": "Group Next.js and React packages",
+      "matchPackagePatterns": ["^next$", "^react", "^@next/"],
+      "groupName": "nextjs-react"
+    },
+    {
+      "description": "Group Tailwind and PostCSS packages",
+      "matchPackagePatterns": ["tailwind", "postcss", "autoprefixer"],
+      "groupName": "tailwind-css"
+    }
+  ]
+}

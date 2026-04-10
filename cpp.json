@@ -1,0 +1,20 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Renovate preset for Beeping C++ repos (beeping-core)",
+  "extends": [
+    "local>beeping-io/renovate-config"
+  ],
+  "enabledManagers": ["git-submodules", "custom.regex"],
+  "packageRules": [
+    {
+      "description": "Group git submodule dependencies",
+      "matchManagers": ["git-submodules"],
+      "groupName": "submodule-deps"
+    },
+    {
+      "description": "Do not automerge C++ deps — requires manual ABI check",
+      "matchManagers": ["git-submodules", "custom.regex"],
+      "automerge": false
+    }
+  ]
+}

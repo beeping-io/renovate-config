@@ -1,0 +1,42 @@
+name: Validate Renovate Config
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Validate presets
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install renovate
+        run: npm install -g renovate
+
+      - name: Validate default.json
+        run: renovate-config-validator default.json
+
+      - name: Validate flutter.json
+        run: renovate-config-validator flutter.json
+
+      - name: Validate cpp.json
+        run: renovate-config-validator cpp.json
+
+      - name: Validate node.json
+        run: renovate-config-validator node.json
+
+      - name: Validate python.json
+        run: renovate-config-validator python.json
+
+      - name: Validate rust.json
+        run: renovate-config-validator rust.json
