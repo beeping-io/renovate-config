@@ -1,0 +1,20 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Renovate preset for Beeping Rust repos (beeping-cli)",
+  "extends": [
+    "local>beeping-io/renovate-config"
+  ],
+  "enabledManagers": ["cargo"],
+  "packageRules": [
+    {
+      "description": "Group all serde-related crates",
+      "matchPackagePatterns": ["^serde"],
+      "groupName": "serde"
+    },
+    {
+      "description": "Group all tokio-related crates",
+      "matchPackagePatterns": ["^tokio", "^hyper", "^axum"],
+      "groupName": "tokio-runtime"
+    }
+  ]
+}

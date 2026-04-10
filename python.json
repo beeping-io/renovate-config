@@ -1,0 +1,15 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Renovate preset for Beeping Python repos (beeping-python)",
+  "extends": [
+    "local>beeping-io/renovate-config"
+  ],
+  "enabledManagers": ["pip_requirements", "pip-compile", "poetry", "pep621"],
+  "packageRules": [
+    {
+      "description": "Group all testing packages",
+      "matchPackagePatterns": ["pytest", "coverage", "hypothesis"],
+      "groupName": "python-testing"
+    }
+  ]
+}

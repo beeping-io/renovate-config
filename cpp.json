@@ -1,0 +1,20 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Renovate preset for Beeping C++ repos (beeping-core)",
+  "extends": [
+    "local>beeping-io/renovate-config"
+  ],
+  "enabledManagers": ["cmake", "git-submodules"],
+  "packageRules": [
+    {
+      "description": "Group vcpkg dependencies",
+      "matchManagers": ["cmake"],
+      "groupName": "vcpkg-deps"
+    },
+    {
+      "description": "Do not automerge C++ deps — requires manual ABI check",
+      "matchManagers": ["cmake", "git-submodules"],
+      "automerge": false
+    }
+  ]
+}
