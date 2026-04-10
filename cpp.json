@@ -4,16 +4,16 @@
   "extends": [
     "local>beeping-io/renovate-config"
   ],
-  "enabledManagers": ["cmake", "git-submodules"],
+  "enabledManagers": ["git-submodules", "custom.regex"],
   "packageRules": [
     {
-      "description": "Group vcpkg dependencies",
-      "matchManagers": ["cmake"],
-      "groupName": "vcpkg-deps"
+      "description": "Group git submodule dependencies",
+      "matchManagers": ["git-submodules"],
+      "groupName": "submodule-deps"
     },
     {
       "description": "Do not automerge C++ deps — requires manual ABI check",
-      "matchManagers": ["cmake", "git-submodules"],
+      "matchManagers": ["git-submodules", "custom.regex"],
       "automerge": false
     }
   ]
